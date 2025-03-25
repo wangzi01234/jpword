@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日语单词记忆</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    <link rel="stylesheet" href="/static/css/table.css">  
+    <link rel="stylesheet" href="/static/css/words.css">  
+    <link rel="stylesheet" href="/static/css/search.css">  
+    <link rel="stylesheet" href="/static/css/nav.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 导航栏HTML -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-brand">日语单词记忆</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">首页</a>
+            <a href="/words" class="nav-link">单词</a>
+            <a href="/grammar" class="nav-link">语法</a>
+            <a href="/examples" class="nav-link">例句</a>
+        </div>
+    </div>
+  </nav>
+  <div class="search-container">
+      <form class="search-box" action="/" method="get">
+          <input class="search-input" 
+                  type="text" 
+                  name="search"
+                  placeholder="输入中文或日文搜索..." 
+                  value="{{ search if search }}"
+                  aria-label="搜索日语单词">
+          <button class="search-button" type="submit">
+              <span class="search-text">搜索</span>
+          </button>
+      </form>
+  </div>
+
+  {% if not search %}
+  {% for table in tables %}
+  <div class="kana-table-container">
+    <table class="kana-table">
+      <thead>
+        <tr>
+          <th colspan="{{ table.colspan }}" class="table-header">
+            {{ table.title }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in table.rows %}
+        <tr>
+          {% for k in row %}
+          <td class="kana-cell {% if not k.slug %}disabled{% endif %}"
+              {% if k.romaji %}onclick="window.location.href='/kana/{{ k.slug }}'"{% endif %}>
+            <div class="kana-card">
+              <div class="kana-wrapper">
+                <span class="kana-char hiragana">{{ k.hiragana }}</span>
+                <span class="kana-char katakana">{{ k.katakana }}</span>
+              </div>
+              <div class="romaji">{{ k.romaji }}</div>
+            </div>
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endfor %}
+  
+  {% else %}
+  <div class="word-list">
+      <h2>搜索结果：</h2>
+      {% for word in words %}
+      <div class="word-item">
+          <!-- 日语和中文在同一行 -->
+          <div class="word-header">
+              <div class="japanese">{{ word.japanese }}</div>
+              <div class="chinese">{{ word.chinese }}</div>
+          </div>
+          
+          <!-- 假名单独一行 -->
+          <div class="kana-links">
+              {% for ele in word.kana %}
+              <a href="/kana/{{ slugs[ele] }}" class="kana-link">
+                  {{ ele }}
+              </a>
+              {% endfor %}
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+  {% endif %}
+</body>
+</html>

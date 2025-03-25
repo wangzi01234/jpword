@@ -1,0 +1,83 @@
+.word-list {
+    margin: 20px auto;;
+    max-width: 800px;
+}
+/* 单词项容器 */
+.word-item {
+    padding: 24px;
+    margin: 40px 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s box-shadow 0.2s;
+}
+
+.word-item:hover {
+    transform: translateY(-2px);
+}
+
+/* 日语和中文行 */
+.word-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 10px 30px 30px;
+}
+
+.japanese {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.chinese {
+    font-size: 20px;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* 假名链接容器 */
+.kana-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 10px 20px 5px;
+}
+
+/* 单个假名链接 */
+.kana-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.2s;
+    
+    /* 添加间隔线 */
+    position: relative;
+}
+
+.kana-link:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: #c0c0c0;
+}
+
+/* 悬停效果 */
+.kana-link:hover {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 12px rgba(52,152,219,0.3);
+}
+
+/* 点击效果 */
+.kana-link:active {
+    transform: scale(0.95);
+}

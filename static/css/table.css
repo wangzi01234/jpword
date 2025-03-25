@@ -1,0 +1,121 @@
+/* 容器样式 */
+.kana-table-container {
+    margin: 20px auto;;
+    max-width: 800px;
+    overflow-x: auto;
+}
+
+/* 表格整体样式 */
+.kana-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+    background: transparent;
+}
+
+/* 表头样式 */
+.table-header {
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 24px;
+    margin: 2rem 0 1rem;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    box-shadow: 
+        0 4px 6px rgba(255, 124, 124, 0.15), /* 外阴影 */
+        inset 0 -2px 0 rgba(0, 0, 0, 0.1); /* 内阴影增加层次 */
+    position: relative;
+}
+
+/* 表头装饰线 */
+.table-header::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 40px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+}
+
+/* 单元格基础样式 */
+.kana-cell {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    /* transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* 禁用状态 */
+.kana-cell.disabled {
+    background: #f8fafc;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 悬停效果 */
+.kana-cell:not(.disabled):hover {
+    /* transform: translateY(-3px); */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: #f7fafc;
+}
+
+/* 假名文字样式 */
+.kana-card {
+    min-width: 80px;
+    padding: 0.5rem;
+    /* background: white; */
+    text-align: center;
+    /* box-shadow: 0 8px 20px rgba(255,140,107,0.1); */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.kana-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255,107,107,0.2);
+}
+
+.kana-wrapper {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 8px;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+
+.kana-char {
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #2d3436;
+}
+
+.hiragana { color: #2b6cb0; }
+.katakana { color: #2d3748; }
+
+/* 罗马字样式 */
+.romaji {
+    color: #718096;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .kana-char {
+        font-size: 1.5rem;
+    }
+
+    .romaji {
+        font-size: 0.9rem;
+    }
+
+    .kana-cell {
+        padding: 0.75rem;
+    }
+}
+  

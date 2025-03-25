@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #ff7762;
+    --primary-dark: #ff6969;
+    --primary-shadow: rgba(255, 124, 124, 0.3);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Noto Sans CJK', sans-serif;
+}
+
+body {
+    background: #f0f5ff;
+    padding-top: 20px; /* 为固定导航栏留出空间 */
+}

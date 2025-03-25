@@ -1,0 +1,54 @@
+/* 导航栏样式 */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff8e53 100%);
+    padding: 1.2rem;
+    box-shadow: 0 4px 20px rgba(255,107,107,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 32px;
+    font-weight: 800;
+    text-decoration: none;
+    margin-right: 3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 12px rgba(255,255,255,0.2);
+}
+
+/* 响应式调整 */
+@media (min-width: 768px) {
+    .nav-brand {
+        margin: 1.5rem 3.5rem;
+    }
+}

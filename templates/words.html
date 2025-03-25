@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>单词表</title>
+    <link rel="stylesheet" href="/static/css/style.css">    
+    <link rel="stylesheet" href="/static/css/nav.css">    
+    <link rel="stylesheet" href="/static/css/words.css">    
+    <link rel="stylesheet" href="/static/css/kana.css">    
+</head>
+<body>
+<!-- 导航栏HTML -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-brand">日语单词记忆</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">首页</a>
+            <a href="/words" class="nav-link">单词</a>
+            <a href="/grammar" class="nav-link">语法</a>
+            <a href="/examples" class="nav-link">例句</a>
+        </div>
+    </div>
+  </nav>
+  <div class="word-list">
+    {% for word in words %}
+    <div class="word-item">
+        <!-- 日语和中文在同一行 -->
+        <div class="word-header">
+            <div class="japanese">{{ word.japanese }}</div>
+            <div class="chinese">{{ word.chinese }}</div>
+        </div>
+        
+        <!-- 假名单独一行 -->
+        <div class="kana-links">
+            {% for ele in word.kana %}
+            <a href="/kana/{{ slugs[ele] }}" class="kana-link">
+                {{ ele }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</body>

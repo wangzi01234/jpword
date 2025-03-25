@@ -1,0 +1,11 @@
+.container { max-width: 800px; margin: 20px auto; }
+.kana-header { 
+    margin-top: 10px;
+    text-align: center; 
+    padding: 40px;
+    background: #f8f9fa;
+}
+.kana-char {
+    font-size: 48px;
+    margin: 10px;
+}
